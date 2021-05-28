@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "HPG+Ppm6O9xnufeOr7GIux530fMgKHnHIs3KePD805p5Bc3c7WAB5KDA6ScJ+ULbqW3zg0P77HBjt24SdPgtRQ==",
+  "dgSpecHash": "qmnMGKOSwPQRMnfGoKpsS7gmZzEPKNX/yshGYEftYpNaGAtMWHsKgf7D+VW8om72wH1W1m+khQu67c1fL7IROA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\pione\\Desktop\\dotnetApps\\RPGApi\\dotnet_rpg\\dotnet_rpg.csproj",
+  "projectFilePath": "C:\\Users\\pione\\Desktop\\dotnetApps\\RPGApi\\dotnet-webapi-first-app-tutorial-\\dotnet_rpg.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\pione\\.nuget\\packages\\automapper\\10.1.1\\automapper.10.1.1.nupkg.sha512",
     "C:\\Users\\pione\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\8.1.1\\automapper.extensions.microsoft.dependencyinjection.8.1.1.nupkg.sha512",

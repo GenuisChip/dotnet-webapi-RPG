@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\pione\\Desktop\\dotnetApps\\RPGApi\\dotnet_rpg\\dotnet_rpg.csproj": {}
+    "C:\\Users\\pione\\Desktop\\dotnetApps\\RPGApi\\dotnet-webapi-first-app-tutorial-\\dotnet_rpg.csproj": {}
   },
   "projects": {
-    "C:\\Users\\pione\\Desktop\\dotnetApps\\RPGApi\\dotnet_rpg\\dotnet_rpg.csproj": {
+    "C:\\Users\\pione\\Desktop\\dotnetApps\\RPGApi\\dotnet-webapi-first-app-tutorial-\\dotnet_rpg.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\pione\\Desktop\\dotnetApps\\RPGApi\\dotnet_rpg\\dotnet_rpg.csproj",
+        "projectUniqueName": "C:\\Users\\pione\\Desktop\\dotnetApps\\RPGApi\\dotnet-webapi-first-app-tutorial-\\dotnet_rpg.csproj",
         "projectName": "dotnet_rpg",
-        "projectPath": "C:\\Users\\pione\\Desktop\\dotnetApps\\RPGApi\\dotnet_rpg\\dotnet_rpg.csproj",
+        "projectPath": "C:\\Users\\pione\\Desktop\\dotnetApps\\RPGApi\\dotnet-webapi-first-app-tutorial-\\dotnet_rpg.csproj",
         "packagesPath": "C:\\Users\\pione\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\pione\\Desktop\\dotnetApps\\RPGApi\\dotnet_rpg\\obj\\",
+        "outputPath": "C:\\Users\\pione\\Desktop\\dotnetApps\\RPGApi\\dotnet-webapi-first-app-tutorial-\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\pione\\AppData\\Roaming\\NuGet\\NuGet.Config",
