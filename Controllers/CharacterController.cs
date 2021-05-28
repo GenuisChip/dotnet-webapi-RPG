@@ -43,6 +43,16 @@ namespace dotnet_rpg.Controllers
         {
             return Ok(await _charaterService.AddCharater(newCharacter));
         }
+
+        [HttpPut]
+        public async Task<IActionResult> UpdateCharacter(UpdateCharacterDto updateCharacter)
+        {
+            var response = await _charaterService.UpdateCharacter(updateCharacter);
+            if(response.Data==null){
+                return NotFound(response);
+            }
+            return Ok(await _charaterService.UpdateCharacter(updateCharacter));
+        }
     }
 
 
