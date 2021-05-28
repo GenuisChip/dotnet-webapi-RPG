@@ -1,8 +1,0 @@
-{
-  "runtimeOptions": {
-    "additionalProbingPaths": [
-      "C:\\Users\\pione\\.dotnet\\store\\|arch|\\|tfm|",
-      "C:\\Users\\pione\\.nuget\\packages"
-    ]
-  }
-}
