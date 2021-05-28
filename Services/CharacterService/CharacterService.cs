@@ -6,26 +6,30 @@ using dotnet_rpg.Models;
 namespace dotnet_rpg.Services.CharacterService
 {
     public class CharacterService : ICharacterService
-    { 
-        
+    {
+
         private static List<Character> charaters = new List<Character>{
              new Character(),
              new Character(){Id=1,Name="Ahmed"},
         };
-        public async Task<List<Character>> AddCharater(Character newCharacter)
+        public async Task<ServiceResponse<List<Character>>> AddCharater(Character newCharacter)
         {
-          charaters.Add(newCharacter);
-            return charaters;
+            charaters.Add(newCharacter);
+            var response = new ServiceResponse<List<Character>>()
+            {
+                Data = charaters
+            };
+            return response;
         }
 
-        public async Task<List<Character>> GetAllCharacters()
+        public async Task<ServiceResponse<List<Character>>> GetAllCharacters()
         {
-            return charaters;
+            return new ServiceResponse<List<Character>>() { Data = charaters };
         }
 
-        public async Task<Character> GetCharaterById(int id)
+        public async Task<ServiceResponse<Character>> GetCharaterById(int id)
         {
-            return charaters.FirstOrDefault(c => c.Id == id);
+            return new ServiceResponse<Character>(){Data=charaters.FirstOrDefault(c => c.Id == id)};
         }
     }
 }
