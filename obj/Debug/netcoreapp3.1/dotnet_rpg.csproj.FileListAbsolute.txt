@@ -18,3 +18,6 @@ C:\Users\pione\Desktop\dotnetApps\RPGApi\dotnet_rpg\obj\Debug\netcoreapp3.1\stat
 C:\Users\pione\Desktop\dotnetApps\RPGApi\dotnet_rpg\obj\Debug\netcoreapp3.1\dotnet_rpg.dll
 C:\Users\pione\Desktop\dotnetApps\RPGApi\dotnet_rpg\obj\Debug\netcoreapp3.1\dotnet_rpg.pdb
 C:\Users\pione\Desktop\dotnetApps\RPGApi\dotnet_rpg\obj\Debug\netcoreapp3.1\dotnet_rpg.genruntimeconfig.cache
+C:\Users\pione\Desktop\dotnetApps\RPGApi\dotnet_rpg\bin\Debug\netcoreapp3.1\AutoMapper.dll
+C:\Users\pione\Desktop\dotnetApps\RPGApi\dotnet_rpg\bin\Debug\netcoreapp3.1\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
+C:\Users\pione\Desktop\dotnetApps\RPGApi\dotnet_rpg\obj\Debug\netcoreapp3.1\dotnet_rpg.csproj.CopyComplete

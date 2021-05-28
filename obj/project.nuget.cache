@@ -1,8 +1,16 @@
 {
   "version": 2,
-  "dgSpecHash": "bEGwSONrCnlgUzf6dse+FUEEidFSyDE6WNnnI/9fF6FZkViJZKh36kiQ5xci2AjGpFkU9YTlfkZw9SvvNSVVjg==",
+  "dgSpecHash": "Luahdl74g4ax9hsVMxGxl64JBV2a7nJe02GUxRpXljRX+cgellAALlIMZcNY/is2YOhdCn4TfEPpsqw9IYAhAg==",
   "success": true,
   "projectFilePath": "C:\\Users\\pione\\Desktop\\dotnetApps\\RPGApi\\dotnet_rpg\\dotnet_rpg.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\pione\\.nuget\\packages\\automapper\\10.1.1\\automapper.10.1.1.nupkg.sha512",
+    "C:\\Users\\pione\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\8.1.1\\automapper.extensions.microsoft.dependencyinjection.8.1.1.nupkg.sha512",
+    "C:\\Users\\pione\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
+    "C:\\Users\\pione\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\3.0.0\\microsoft.extensions.dependencyinjection.abstractions.3.0.0.nupkg.sha512",
+    "C:\\Users\\pione\\.nuget\\packages\\microsoft.extensions.options\\3.0.0\\microsoft.extensions.options.3.0.0.nupkg.sha512",
+    "C:\\Users\\pione\\.nuget\\packages\\microsoft.extensions.primitives\\3.0.0\\microsoft.extensions.primitives.3.0.0.nupkg.sha512",
+    "C:\\Users\\pione\\.nuget\\packages\\system.reflection.emit\\4.7.0\\system.reflection.emit.4.7.0.nupkg.sha512"
+  ],
   "logs": []
 }
