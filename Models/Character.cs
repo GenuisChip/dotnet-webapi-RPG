@@ -12,5 +12,7 @@ namespace dotnet_rpg.Models
         public int Intelligence { get; set; } = 10;
 
         public RgpClass Class { get; set; } = RgpClass.Knight;
+
+        public User User { get; set; }
     }
 }
