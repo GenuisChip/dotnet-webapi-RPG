@@ -18,7 +18,7 @@ namespace dotnet_rpg.Controllers
              new Character(){Id=1,Name="Ahmed"},
         };
 
-        private readonly  ICharacterService _charaterService ;
+        private readonly ICharacterService _charaterService;
 
         public CharacterController(ICharacterService charaterService)
         {
@@ -33,7 +33,7 @@ namespace dotnet_rpg.Controllers
         }
 
         [HttpGet("{id}")]
-        public  async Task<IActionResult> GetSingle(int id)
+        public async Task<IActionResult> GetSingle(int id)
         {
             return Ok(await _charaterService.GetCharaterById(id));
         }
@@ -48,10 +48,22 @@ namespace dotnet_rpg.Controllers
         public async Task<IActionResult> UpdateCharacter(UpdateCharacterDto updateCharacter)
         {
             var response = await _charaterService.UpdateCharacter(updateCharacter);
-            if(response.Data==null){
+            if (response.Data == null)
+            {
                 return NotFound(response);
             }
             return Ok(await _charaterService.UpdateCharacter(updateCharacter));
+        }
+
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> DeleteCharacter(int id)
+        {
+            var response = await _charaterService.DeleteCharacter(id);
+            if (response.Data == null)
+            {
+                return NotFound(response);
+            }
+            return Ok(response);
         }
     }
 
