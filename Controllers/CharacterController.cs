@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
 using dotnet_rpg.Dtos.Charater;
 using dotnet_rpg.Models;
@@ -31,7 +32,8 @@ namespace dotnet_rpg.Controllers
         [HttpGet("GetAll")]
         public async Task<IActionResult> Get()
         {
-            return Ok(await _charaterService.GetAllCharacters());
+            int id = int.Parse(User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier).Value);
+            return Ok(await _charaterService.GetAllCharacters(id));
         }
 
         [HttpGet("{id}")]
