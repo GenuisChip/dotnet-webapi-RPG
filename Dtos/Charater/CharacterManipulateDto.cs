@@ -1,19 +1,18 @@
 using System.ComponentModel.DataAnnotations;
 using dotnet_rpg.Enums;
 
-namespace dotnet_rpg.Models
+namespace dotnet_rpg.Dtos.Charater
 {
-    public class Character
+    public class CharacterManipulateDto
     {
-        public int Id { get; set; }
-        public string Name { get; set; }
+        [Required(ErrorMessage = "Name is Required")]
+        [MinLength(2, ErrorMessage = "Minimum 2 Charatcer")]
+        public string Name { get; set; }  
         public int HitPoints { get; set; } = 100;
         public int Strength { get; set; } = 10;
         public int Defense { get; set; } = 10;
         public int Intelligence { get; set; } = 10;
 
         public RgpClass Class { get; set; } = RgpClass.Knight;
-
-        public User User { get; set; }
     }
 }
