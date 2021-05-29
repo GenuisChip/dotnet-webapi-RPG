@@ -12,5 +12,6 @@ namespace dotnet_rpg.Entities
         public uint MaxIntelligence { get; set; } = int.MaxValue;
 
 
+        public string Search { get; set; }
     }
 }

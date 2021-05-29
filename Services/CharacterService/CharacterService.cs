@@ -68,6 +68,10 @@ namespace dotnet_rpg.Services.CharacterService
             .Skip((param.PageNumber - 1) * param.PageSize)
             .Take(param.PageSize)
             .ToListAsync();
+            if (!string.IsNullOrWhiteSpace(param.Search))
+            {
+                characters = characters.Where(c => c.Name.ToLower().Contains(param.Search.ToLower())).ToList();
+            }
             var data = PagedList<GetCharacterDto>.ToPagedList(characters.Select(c => _mapper.Map<GetCharacterDto>(c)).ToList(), param.PageNumber, param.PageSize);
             return new ServiceResponse<PagedList<GetCharacterDto>>() { Data = data };
         }
