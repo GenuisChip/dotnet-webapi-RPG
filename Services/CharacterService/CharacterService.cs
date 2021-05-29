@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using AutoMapper;
 using dotnet_rpg.Data;
 using dotnet_rpg.Dtos.Charater;
+using dotnet_rpg.Entities;
 using dotnet_rpg.Models;
 using Microsoft.EntityFrameworkCore;
 
@@ -53,10 +54,26 @@ namespace dotnet_rpg.Services.CharacterService
             return response;
         }
 
-        public async Task<ServiceResponse<List<GetCharacterDto>>> GetAllCharacters(int userId)
+        public async Task<ServiceResponse<PagedList<GetCharacterDto>>> GetAllCharacters(int userId, CharacterParams param)
         {
-            var characters = await _context.characters.Where(c=>c.User.Id==userId).ToListAsync();
-            return new ServiceResponse<List<GetCharacterDto>>() { Data = characters.Select(c => _mapper.Map<GetCharacterDto>(c)).ToList() };
+            var characters = await _context.characters.Where(c =>
+             c.User.Id == userId
+             && c.Intelligence >= param.MinIntelligence
+             && c.Intelligence <= param.MaxIntelligence
+             && c.Strength >= param.MinStrength
+             && c.Strength <= param.MaxStrength
+             && c.Defense >= param.MinDefense
+             && c.Defense <= param.MaxDefense
+             )
+            .Skip((param.PageNumber - 1) * param.PageSize)
+            .Take(param.PageSize)
+            .ToListAsync();
+            if (!string.IsNullOrWhiteSpace(param.Search))
+            {
+                characters = characters.Where(c => c.Name.ToLower().Contains(param.Search.ToLower())).ToList();
+            }
+            var data = PagedList<GetCharacterDto>.ToPagedList(characters.Select(c => _mapper.Map<GetCharacterDto>(c)).ToList(), param.PageNumber, param.PageSize);
+            return new ServiceResponse<PagedList<GetCharacterDto>>() { Data = data };
         }
 
         public async Task<ServiceResponse<GetCharacterDto>> GetCharaterById(int id)

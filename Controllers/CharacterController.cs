@@ -3,10 +3,12 @@ using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using dotnet_rpg.Dtos.Charater;
+using dotnet_rpg.Entities;
 using dotnet_rpg.Models;
 using dotnet_rpg.Services.CharacterService;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 
 namespace dotnet_rpg.Controllers
 {
@@ -30,10 +32,12 @@ namespace dotnet_rpg.Controllers
 
         //[AllowAnonymous] to get this without authentication
         [HttpGet("GetAll")]
-        public async Task<IActionResult> Get()
+        public async Task<IActionResult> Get([FromQuery] CharacterParams characterParams)
         {
             int id = int.Parse(User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier).Value);
-            return Ok(await _charaterService.GetAllCharacters(id));
+            var res = await _charaterService.GetAllCharacters(id, characterParams);
+            Response.Headers.Add("X-Pagination",JsonConvert.SerializeObject(res.Data.MetaData));
+            return Ok(res);
         }
 
         [HttpGet("{id}")]
