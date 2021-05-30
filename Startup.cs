@@ -63,6 +63,7 @@ namespace dotnet_rpg
             app.UseRouting();
 
             app.UseMiddleware<GlobalErrorHandlerMiddleware>();
+            app.UseMiddleware<TokenValidationMiddleware>();
 
             //add jwt auth middleware
             app.UseAuthentication();
