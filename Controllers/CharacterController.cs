@@ -4,6 +4,7 @@ using System.Security.Claims;
 using System.Threading.Tasks;
 using dotnet_rpg.Dtos.Charater;
 using dotnet_rpg.Entities;
+using dotnet_rpg.Helpers;
 using dotnet_rpg.Models;
 using dotnet_rpg.Services.CharacterService;
 using Microsoft.AspNetCore.Authorization;
@@ -34,6 +35,7 @@ namespace dotnet_rpg.Controllers
         [HttpGet("GetAll")]
         public async Task<IActionResult> Get([FromQuery] CharacterParams characterParams)
         {
+            // throw new AppException("Test Middleware");
             int id = int.Parse(User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier).Value);
             var res = await _charaterService.GetAllCharacters(id, characterParams);
             Response.Headers.Add("X-Pagination",JsonConvert.SerializeObject(res.Data.MetaData));
