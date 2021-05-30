@@ -112,14 +112,13 @@ namespace dotnet_rpg.Data
             SecurityTokenDescriptor descriptor = new SecurityTokenDescriptor()
             {
                 Subject = new ClaimsIdentity(claims),
-                Expires = DateTime.Now.AddDays(1),
+                Expires = DateTime.Now.AddMonths(1),
                 SigningCredentials = cred
             };
 
             JwtSecurityTokenHandler tokenHandler = new JwtSecurityTokenHandler();
             SecurityToken token = tokenHandler.CreateToken(descriptor);
             return tokenHandler.WriteToken(token);
-
 
         }
     }

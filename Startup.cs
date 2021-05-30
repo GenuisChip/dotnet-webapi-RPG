@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using dotnet_rpg.Data;
+using dotnet_rpg.Middlewares;
 using dotnet_rpg.Services.CharacterService;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
@@ -60,6 +61,8 @@ namespace dotnet_rpg
             app.UseHttpsRedirection();
 
             app.UseRouting();
+
+            app.UseMiddleware<GlobalErrorHandlerMiddleware>();
 
             //add jwt auth middleware
             app.UseAuthentication();
