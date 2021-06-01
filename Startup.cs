@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using dotnet_rpg.Data;
+using dotnet_rpg.Extensions;
 using dotnet_rpg.Middlewares;
 using dotnet_rpg.Services.CharacterService;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -53,6 +54,7 @@ namespace dotnet_rpg
                 options.Configuration = Configuration.GetConnectionString("Redis");
                 options.InstanceName = "RPG_Demo_"; // this is optional to add prefix name for pair value key
             });
+            services.ConfigureVersioning();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
