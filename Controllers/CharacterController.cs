@@ -1,14 +1,17 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using dotnet_rpg.Dtos.Charater;
 using dotnet_rpg.Entities;
+using dotnet_rpg.Extensions;
 using dotnet_rpg.Helpers;
 using dotnet_rpg.Models;
 using dotnet_rpg.Services.CharacterService;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Caching.Distributed;
 using Newtonsoft.Json;
 
 namespace dotnet_rpg.Controllers
@@ -25,9 +28,11 @@ namespace dotnet_rpg.Controllers
         };
 
         private readonly ICharacterService _charaterService;
+        private readonly IDistributedCache _cache;
 
-        public CharacterController(ICharacterService charaterService)
+        public CharacterController(ICharacterService charaterService, IDistributedCache cache)
         {
+            _cache = cache;
             this._charaterService = charaterService;
         }
 
@@ -37,9 +42,18 @@ namespace dotnet_rpg.Controllers
         {
             // throw new AppException("Test Middleware");
             int id = int.Parse(User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier).Value);
-            var res = await _charaterService.GetAllCharacters(id, characterParams);
-            Response.Headers.Add("X-Pagination",JsonConvert.SerializeObject(res.Data.MetaData));
-            return Ok(res);
+            var val = await _cache.GetRecordAsync<dynamic>($"GetAllCharacterFor_{id}");
+            if (val is null)
+            {
+                Console.WriteLine("Get From DB Service");
+                var res = await _charaterService.GetAllCharacters(id, characterParams);
+                Response.Headers.Add("X-Pagination", JsonConvert.SerializeObject(res.Data.MetaData));
+                await _cache.SetRecordAsync<ServiceResponse<PagedList<GetCharacterDto>>>($"GetAllCharacterFor_{id}", res);
+                return Ok(res);
+            }
+            Console.WriteLine("Get From Cache");
+            return Ok(val);
+
         }
 
         [HttpGet("{id}")]

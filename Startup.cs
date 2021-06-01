@@ -48,6 +48,11 @@ namespace dotnet_rpg
                     ValidateAudience = false
                 };
             });
+            services.AddStackExchangeRedisCache(options =>
+            {
+                options.Configuration = Configuration.GetConnectionString("Redis");
+                options.InstanceName = "RPG_Demo_"; // this is optional to add prefix name for pair value key
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
