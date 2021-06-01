@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using AspNetCoreRateLimit;
 using dotnet_rpg.Data;
 using dotnet_rpg.Extensions;
 using dotnet_rpg.Middlewares;
@@ -55,6 +56,11 @@ namespace dotnet_rpg
                 options.InstanceName = "RPG_Demo_"; // this is optional to add prefix name for pair value key
             });
             services.ConfigureVersioning();
+            //Rate limiting uses a memory cache to store its counters and rules
+            services.AddMemoryCache();
+            services.ConfigureRateLimitingOptions();
+            services.AddHttpContextAccessor();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -66,6 +72,7 @@ namespace dotnet_rpg
             }
 
             app.UseHttpsRedirection();
+            app.UseIpRateLimiting();
 
             app.UseRouting();
 
